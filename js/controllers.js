@@ -7,13 +7,14 @@ esm.controller('ImageEditor', ['$scope', function($scope) {
 
     var scaleX, scaleY;
 
+    $scope.canvas.getElement().addEventListener('image:change', function() {
+        console.log('image:change');
+    });
+
     fabric.Image.fromURL('http://carinbondar.com/wp-content/uploads/2011/01/koala2.jpeg', function(image) {
 
         scaleY = canvas.height / image.height;
         scaleX = canvas.width / image.width;
-
-        console.log('height: ' + canvas.height + ' ' + image.height + ' ' + scaleX);
-        console.log('width: ' + canvas.width + ' ' + image.width + ' ' + scaleY);
 
         image.set({
             left: 0,
@@ -26,7 +27,11 @@ esm.controller('ImageEditor', ['$scope', function($scope) {
         image.lockMovementY = true;
 
         canvas.add(image);
+
     });
+
+
+    console.log($scope.canvas.toDataURL());
 
     var pos = [0, 0];
 
@@ -60,6 +65,8 @@ esm.controller('ImageEditor', ['$scope', function($scope) {
             console.log(event);
             el.left = event.e.layerX;
             el.top = event.e.layerY;
+            el.width = 5;
+            el.height = 5;
             //el.selectable = false;
             el.visible = true;
             console.log(el);
@@ -89,20 +96,6 @@ esm.controller('ImageEditor', ['$scope', function($scope) {
 
     $scope.confirmCrop = function() {
         var object = canvas.item(0);
-
-        console.log(object.left + ' ' + object.top + ' ' + object.width + ' ' + object.height);
-        console.log(el.left + ' ' + el.top + ' ' + el.width + ' ' + el.height);
-
-        var left = el.left * (1 / scaleX);
-        var top = el.top * (1 / scaleY);
-
-//        left = 1 / scaleX;
-//        top = 1 / scaleY;
-
-        var width = el.width * (1 / scaleX);
-        var height = el.height * (1 / scaleY);
-
-        console.log(left + ' ' + top + ' ' + width + ' ' + height);
 
         canvas.clipTo = function(ctx) {
             ctx.rect(el.left, el.top, el.width, el.height);
