@@ -12,6 +12,8 @@
 .darkroom-button:hover{cursor:pointer;background:#555}
 .darkroom-button:active{cursor:pointer;background:#333}
 .darkroom-toolbar{position:absolute;top:0px;left:0;background:#444;height:40px;display:block;z-index:99;border-radius:2px;white-space:nowrap}
+.darkroom-toolbar-submenu_1line{position:absolute;background:#444;left:0;height:40px;display:block;z-index:99;border-radius:2px;white-space:nowrap}
+.darkroom-toolbar-submenu_2line{position:absolute;background:#444;left:0;height:80px;display:block;z-index:99;border-radius:2px;white-space:nowrap; text-align: left;}
 .darkroom-toolbar:before{content:"";position:absolute;bottom:-7px;left:20px;width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:7px solid #444}
 ul.darkroom-toolbar-actions{list-style:none;padding:0 5px;margin:0}
 .darkroom-toolbar-actions li{display:inline-block;padding:0;margin:0}
@@ -27,4 +29,4 @@ ul.darkroom-toolbar-actions li.darkroom-button-group:last-child{border-right:non
 .darkroom-icon-rotate-right:before{content:"\f107"}
 .darkroom-icon-save:before{content:"\f108"}
 .darkroom-icon-undo:before{content:"\f109"}
-/*# sourceMappingURL=darkroom.min.css.map */
+/*# sourceMappingURL=imageEditor.min.css.map */

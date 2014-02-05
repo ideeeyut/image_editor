@@ -32,22 +32,22 @@
   // Basically it's a single object, instanciable via an element
   // (it could be a CSS selector or a DOM element), some custom options,
   // and a list of plugin objects (or none to use default ones).
-  function Darkroom(element, options, plugins) {
+  function ImageEditor(element, options, plugins) {
     return this.init(element, options, plugins);
   }
 
-  // Darkroom namespace is the only one available outside of this context.
-  window.Darkroom = Darkroom;
+  // ImageEditor namespace is the only one available outside of this context.
+  window.ImageEditor = ImageEditor;
 
   // Create an empty list of plugin objects, which will be filled by
   // other plugin scripts. This is the default plugin list if none is
-  // specified in Darkroom'ss constructor.
-  Darkroom.plugins = [];
+  // specified in ImageEditor'ss constructor.
+  ImageEditor.plugins = [];
 
   // Define a plugin object. This is the (abstract) parent class which
   // has to be extended for each plugin.
   function Plugin(darkroom, options) {
-    this.darkroom = darkroom;
+    this.imageEditor = darkroom;
     this.options = extend(options, this.defaults);
     this.initialize();
   }
@@ -82,7 +82,7 @@
   }
 
   // Attach the plugin class into the main namespace.
-  Darkroom.Plugin = Plugin;
+  ImageEditor.Plugin = Plugin;
 
   // UI elements
   // -----------
@@ -162,7 +162,7 @@
   // Core object prototype
   // ---------------------
 
-  Darkroom.prototype = {
+  ImageEditor.prototype = {
     // This is the default options.
     // It has it's own options, such as dimension specification (min/max
     // width and height), plus options for each plugins.
@@ -206,7 +206,7 @@
       if (null === element)
         return;
 
-      var plugins = plugins || Darkroom.plugins;
+      var plugins = plugins || ImageEditor.plugins;
 
       var image = new Image();
 

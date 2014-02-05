@@ -1,9 +1,9 @@
 ;(function(window, document, Darkroom, fabric) {
   'use strict';
 
-  Darkroom.plugins['rotate'] = Darkroom.Plugin.extend({
+  ImageEditor.plugins['rotate'] = ImageEditor.Plugin.extend({
     initialize: function InitDarkroomRotatePlugin() {
-      var buttonGroup = this.darkroom.toolbar.createButtonGroup();
+      var buttonGroup = this.imageEditor.toolbar.createButtonGroup();
 
       this.leftButton = buttonGroup.createButton({
         image: 'rotate-left'
@@ -28,7 +28,7 @@
     rotate: function rotate(angle) {
       var _this = this;
 
-      var darkroom = this.darkroom;
+      var darkroom = this.imageEditor;
       var canvas = darkroom.canvas;
       var image = darkroom.image;
       angle = (image.getAngle() + angle) % 360;
@@ -55,4 +55,4 @@
       darkroom.dispatchEvent(new Event('image:change'));
     }
   });
-})(window, document, Darkroom, fabric);
+})(window, document, ImageEditor, fabric);

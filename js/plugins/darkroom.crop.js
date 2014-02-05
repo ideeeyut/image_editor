@@ -115,7 +115,7 @@
     }
   });
 
-  Darkroom.plugins['crop'] = Darkroom.Plugin.extend({
+  ImageEditor.plugins['crop'] = ImageEditor.Plugin.extend({
     // Init point
     startX: null,
     startY: null,
@@ -127,7 +127,7 @@
     },
 
     initialize: function InitDarkroomCropPlugin() {
-      var buttonGroup = this.darkroom.toolbar.createButtonGroup();
+      var buttonGroup = this.imageEditor.toolbar.createButtonGroup();
 
       this.cropButton = buttonGroup.createButton({
         image: 'crop'
@@ -149,13 +149,13 @@
       this.cancelButton.addEventListener('click', this.releaseFocus.bind(this));
 
       // Canvas events
-      this.darkroom.canvas.on('mouse:down', this.onMouseDown.bind(this));
-      this.darkroom.canvas.on('mouse:move', this.onMouseMove.bind(this));
-      this.darkroom.canvas.on('mouse:up', this.onMouseUp.bind(this));
-      this.darkroom.canvas.on('object:moving', this.onObjectMoving.bind(this));
-      this.darkroom.canvas.on('object:scaling', this.onObjectScaling.bind(this));
+      this.imageEditor.canvas.on('mouse:down', this.onMouseDown.bind(this));
+      this.imageEditor.canvas.on('mouse:move', this.onMouseMove.bind(this));
+      this.imageEditor.canvas.on('mouse:up', this.onMouseUp.bind(this));
+      this.imageEditor.canvas.on('object:moving', this.onObjectMoving.bind(this));
+      this.imageEditor.canvas.on('object:scaling', this.onObjectScaling.bind(this));
 
-      this.darkroom.addEventListener('image:change', this.releaseFocus.bind(this));
+      this.imageEditor.addEventListener('image:change', this.releaseFocus.bind(this));
     },
 
     // Avoid crop zone to go beyond the canvas edges
@@ -168,7 +168,7 @@
       if (currentObject !== this.cropZone)
         return;
 
-      var canvas = this.darkroom.canvas;
+      var canvas = this.imageEditor.canvas;
       var x = currentObject.getLeft(), y = currentObject.getTop();
       var w = currentObject.getWidth(), h = currentObject.getHeight();
       var maxX = canvas.getWidth() - w;
@@ -194,7 +194,7 @@
       if (currentObject !== this.cropZone)
         return;
 
-      var canvas = this.darkroom.canvas;
+      var canvas = this.imageEditor.canvas;
       var x = event.e.pageX - canvas._offset.left;
       var y = event.e.pageY - canvas._offset.top;
 
@@ -236,7 +236,7 @@
         return;
       }
 
-      var canvas = this.darkroom.canvas;
+      var canvas = this.imageEditor.canvas;
       var x = event.e.pageX - canvas._offset.left;
       var y = event.e.pageY - canvas._offset.top;
       var point = new fabric.Point(x, y);
@@ -263,7 +263,7 @@
         return;
       }
 
-      var canvas = this.darkroom.canvas;
+      var canvas = this.imageEditor.canvas;
       var x = event.e.pageX - canvas._offset.left;
       var y = event.e.pageY - canvas._offset.top;
 
@@ -276,7 +276,7 @@
         return;
       }
 
-      var canvas = this.darkroom.canvas;
+      var canvas = this.imageEditor.canvas;
       this.cropZone.setCoords();
       canvas.setActiveObject(this.cropZone);
       canvas.calcOffset();
@@ -300,7 +300,7 @@
         });
       }
 
-      var canvas = this.darkroom.canvas;
+      var canvas = this.imageEditor.canvas;
       canvas.bringToFront(this.cropZone);
       this.cropZone.setCoords();
       canvas.setActiveObject(this.cropZone);
@@ -324,7 +324,7 @@
         return;
 
       var _this = this;
-      var darkroom = this.darkroom;
+      var darkroom = this.imageEditor;
       var canvas = darkroom.canvas;
 
       // Hide crop rectangle to avoid snapshot it with the image
@@ -360,8 +360,8 @@
         canvas.setHeight(height);
 
         // Add image
-        _this.darkroom.image.remove();
-        _this.darkroom.image = imgInstance;
+        _this.imageEditor.image.remove();
+        _this.imageEditor.image = imgInstance;
         canvas.add(imgInstance);
 
         darkroom.dispatchEvent(new Event('image:change'));
@@ -401,8 +401,8 @@
         this.cropZone.set('lockUniScaling', true);
       }
 
-      this.darkroom.canvas.add(this.cropZone);
-      this.darkroom.canvas.defaultCursor = 'crosshair';
+      this.imageEditor.canvas.add(this.cropZone);
+      this.imageEditor.canvas.defaultCursor = 'crosshair';
 
       this.cropButton.active(true);
       this.okButton.hide(false);
@@ -421,11 +421,11 @@
       this.okButton.hide(true);
       this.cancelButton.hide(true);
 
-      this.darkroom.canvas.defaultCursor = 'default';
+      this.imageEditor.canvas.defaultCursor = 'default';
     },
 
     _renderCropZone: function(fromX, fromY, toX, toY) {
-      var canvas = this.darkroom.canvas;
+      var canvas = this.imageEditor.canvas;
 
       var isRight = (toX > fromX);
       var isLeft = !isRight;
@@ -536,7 +536,7 @@
       this.cropZone.width = width;
       this.cropZone.height = height;
 
-      this.darkroom.canvas.bringToFront(this.cropZone);
+      this.imageEditor.canvas.bringToFront(this.cropZone);
     }
   });
-})(window, document, Darkroom, fabric);
+})(window, document, ImageEditor, fabric);
