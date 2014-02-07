@@ -5,7 +5,8 @@ function capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-esm.directive('appVersion', ['version', function(version) {
+angular.module('esm')
+    .directive('appVersion', ['version', function(version) {
     return function(scope, elm, attrs) {
       elm.text(version);
     };

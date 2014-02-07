@@ -2,12 +2,12 @@
 
 
 //// Declare app level module which depends on filters, and services
-var esm = angular.module('esm', [
-//  'ngRoute',
-//  'esm.filters',
-//  'esm.services',
-//  'esm.directives',
-//  'esm.controllers'
+angular.module('esm', [
+  'ngRoute',
+  'esm.filters',
+  'esm.services',
+  'esm.directives',
+  'esm.controllers'
 ]);
 //.
 //config(['$routeProvider', function($routeProvider) {

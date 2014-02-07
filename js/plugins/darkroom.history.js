@@ -1,7 +1,7 @@
 ;(function(window, document, Darkroom, fabric) {
   'use strict';
 
-  ImageEditor.plugins['history'] = ImageEditor.Plugin.extend({
+  Darkroom.plugins['history'] = Darkroom.Plugin.extend({
     initialize: function InitDarkroomHistoryPlugin() {
       this._initButtons();
 
@@ -10,7 +10,7 @@
 
       this._snapshotImage();
 
-      this.imageEditor.addEventListener('image:change', this._onImageChange.bind(this));
+      this.darkroom.addEventListener('image:change', this._onImageChange.bind(this));
     },
 
     goBack: function() {
@@ -36,7 +36,7 @@
     },
 
     _initButtons: function() {
-      var buttonGroup = this.imageEditor.toolbar.createButtonGroup();
+      var buttonGroup = this.darkroom.toolbar.createButtonGroup();
 
       this.backButton = buttonGroup.createButton({
         image: 'back',
@@ -62,7 +62,7 @@
     _snapshotImage: function() {
       var _this = this;
       var image = new Image();
-      image.src = this.imageEditor.snapshotImage();
+      image.src = this.darkroom.snapshotImage();
 
       this.currentImage = image;
     },
@@ -76,7 +76,7 @@
 
     // Apply image to the canvas
     _applyImage: function(image) {
-      var canvas = this.imageEditor.canvas;
+      var canvas = this.darkroom.canvas;
 
       var imgInstance = new fabric.Image(image, {
         // options to make the image static
@@ -97,9 +97,9 @@
       canvas.setHeight(image.height);
 
       // Add image
-      this.imageEditor.image.remove();
-      this.imageEditor.image = imgInstance;
+      this.darkroom.image.remove();
+      this.darkroom.image = imgInstance;
       canvas.add(imgInstance);
     }
   });
-})(window, document, ImageEditor, fabric);
+})(window, document, Darkroom, fabric);

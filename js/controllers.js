@@ -2,7 +2,8 @@
 
 /* Controllers */
 
-esm.controller('ImageEditor', ['$scope', function($scope) {
+angular.module('esm')
+    .controller('ImageEditor', ['$scope', function($scope) {
     var BRIGHTNESS_FILTER = 5;
     var SHARPEN_FILTER = 6;
     var CONTRAST_FILTER = 7;

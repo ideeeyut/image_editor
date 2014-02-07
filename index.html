@@ -22,186 +22,200 @@
 
         <script src="js/app.js"></script>
         <script src="js/services.js"></script>
-        <script src="js/controllers.js"></script>
+        <!--<script src="js/controllers.js"></script>-->
         <script src="js/filters.js"></script>
         <script src="js/directives.js"></script>
 
     </head>
     <body ng-app="esm">
-
-        <br/>
-        <br/>
-        <br/>
         <!-- Add your site or application content here -->
 
-        <div ng-controller="ImageEditor">
-            <div class="darkroom-toolbar">
-                <ul class="darkroom-toolbar-actions">
-                    <li class="darkroom-button-group">
-                        <!-- http://stackoverflow.com/questions/19043219/undo-redo-feature-in-fabric-js -->
-                        <button class="darkroom-button">
-                            <i class="darkroom-icon-back"></i>
-                        </button>
-                        <button class="darkroom-button">
-                            <i class="darkroom-icon-forward"></i>
-                        </button>
-                    </li>
-                    <li class="darkroom-button-group">
-                        <button class="darkroom-button" ng-click="crop()">
-                            <i class="darkroom-icon-crop"></i>
-                        </button>
-                        <button class="darkroom-button" ng-show="cropConfirmation" ng-click="confirmCrop()">
-                            <i class="darkroom-icon-accept"></i>
-                        </button>
-                        <button class="darkroom-button" ng-show="cropConfirmation" ng-click="cancelCrop()">
-                            <i class="darkroom-icon-cancel"></i>
-                        </button>
-                        <button class="darkroom-button" ng-click="zoom()">
-                            Zoom
-                        </button>
-                        <button class="darkroom-button" ng-show="zoomConfirmation" style="width:150px">
-                            <input type="range" min="0" max="100" value="50" bind-value-to="zoom" />
-                        </button>
-                        <button class="darkroom-button" ng-show="zoomConfirmation" ng-click="zoomConfirmation=false">
-                            <i class="darkroom-icon-accept"></i>
-                        </button>
-                        <button class="darkroom-button" ng-show="zoomConfirmation" ng-click="zoomConfirmation=false">
-                            <i class="darkroom-icon-cancel"></i>
-                        </button>
-                    </li>
-                    <li class="darkroom-button-group">
-                        <button class="darkroom-button" ng-click="draw()" style="width:80px">
-                            Draw
-                        </button>
-                    </li>
-                    <li class="darkroom-button-group">
-                        <button class="darkroom-button" ng-click="text()" style="width:70px">
-                            Text
-                        </button>
-                    </li>
-                    <li class="darkroom-button-group">
-                        <button class="darkroom-button" ng-click="brightness()">
-                            B
-                        </button>
-                        <button class="darkroom-button" ng-show="showBrightness" style="width:150px">
-                            <input type="range" min="0" max="255" value="100" bind-value-to="brightness" />
-                        </button>
-                        <button class="darkroom-button" ng-show="showBrightness" ng-click="acceptBrightness()">
-                            <i class="darkroom-icon-accept"></i>
-                        </button>
-                        <button class="darkroom-button" ng-show="showBrightness" ng-click="cancelBrightness()">
-                            <i class="darkroom-icon-cancel"></i>
-                        </button>
-                    </li>
-                    <li class="darkroom-button-group">
-                        <button class="darkroom-button" ng-click="sharpen()">
-                            S
-                        </button>
-                        <button class="darkroom-button" ng-show="showSharpen" ng-click="acceptSharpen()">
-                            <i class="darkroom-icon-accept"></i>
-                        </button>
-                        <button class="darkroom-button" ng-show="showSharpen" ng-click="cancelSharpen()">
-                            <i class="darkroom-icon-cancel"></i>
-                        </button>
-                    </li>
-                    <li class="darkroom-button-group">
-                        <button class="darkroom-button" ng-click="contrast()">
-                            Contrast
-                        </button>
-                        <button class="darkroom-button" ng-show="showContrast" style="width:150px">
-                            <input type="range" min="-10" max="20" bind-value-to="contrast" />
-                        </button>
-                        <button class="darkroom-button" ng-show="showContrast" ng-click="acceptContrast()">
-                            <i class="darkroom-icon-accept"></i>
-                        </button>
-                        <button class="darkroom-button" ng-show="showContrast" ng-click="cancelContrast()">
-                            <i class="darkroom-icon-cancel"></i>
-                        </button>
-                    </li>
-                    <li class="darkroom-button-group">
-                        <button class="darkroom-button" ng-click="rotate(-90)">
-                            <i class="darkroom-icon-rotate-left"></i>
-                        </button>
-                        <button class="darkroom-button" ng-click="rotate(90)">
-                            <i class="darkroom-icon-rotate-right"></i>
-                        </button>
-                    </li>
-                    <li class="darkroom-button-group" ng-show="isObjectSelected" >
-                        <button class="darkroom-button" ng-click="removeSelected()">
-                            <i class="darkroom-icon-cancel"></i>
-                        </button>
-                        <button class="darkroom-button" style="width:320px">
-                            Opacity: <input type="range" min="0" max="100" style="width:60px" bind-value-to="opacity" />
-                        </button>
-                    </li>
-                    <li class="darkroom-button-group">
-                        <button class="darkroom-button">
-                            <i class="darkroom-icon-save"></i>
-                        </button>
-                        <button class="darkroom-button">
-                            <i class="darkroom-icon-save"></i>
-                        </button>
-                        <button class="darkroom-button">
-                            <i class="darkroom-icon-save"></i>
-                        </button>
-                    </li>
-                </ul>
-                <div ng-model="showDraw" ng-show="showDraw" class="darkroom-toolbar-submenu_2line" style="height: 80px; width:500px; font-size: 20px">
-                        Line <input type="color" value="#005E7A" bind-value-to="drawingLineColor"> Width dfsaf   {{ getDrawingLineWidth() }} <input type="range" value="30" min="0" max="150" bind-value-to="drawingLineWidth"><br/>
-                        <button ng-click="drawRect()">Square</button>
-                        <button ng-click="drawCircle()">Circle</button>
-                        <button ng-click="drawTriangle()">Triangle</button>
-                        <button ng-click="drawLine()">Line</button>
-                </div>
-                <div ng-model="showText" ng-show="showText" class="darkroom-toolbar-submenu_2line" style="height: 80px; width:650px; font-size: 20px">
-                    <div>
-                        <textarea rows="2" ng-model="textValue"></textarea><button ng-click="addText(textValue)">Add Text</button>
-                    </div>
-                    <div>
-                        <label for="font-family" style="display:inline-block">Color:</label><input type="color" style="width:40px" bind-value-to="fill" />
-                        <label for="font-family" style="display:inline-block">Font:</label>
-                        <select id="font-family">
-                            <option value="arial">Arial</option>
-                            <option value="helvetica" selected="">Helvetica</option>
-                            <option value="myriad pro">Myriad Pro</option>
-                            <option value="delicious">Delicious</option>
-                            <option value="verdana">Verdana</option>
-                            <option value="georgia">Georgia</option>
-                            <option value="courier">Courier</option>
-                            <option value="comic sans ms">Comic Sans MS</option>
-                            <option value="impact">Impact</option>
-                            <option value="monaco">Monaco</option>
-                            <option value="optima">Optima</option>
-                            <option value="hoefler text">Hoefler Text</option>
-                            <option value="plaster">Plaster</option>
-                            <option value="engagement">Engagement</option>
-                        </select>
-                        <label>Size:</label>
-                        <input type="range" value="12" min="1" max="120" step="1">
-                        <br />
-                        <button>L</button>
-                        <button>C</button>
-                        <button>R</button>
-                        <label>Background:</label><input type="color" value="" size="10">
-                    </div>
-                </div>
-            </div>
+        <!--<div ng-controller="ImageEditor">-->
+            <!--<div class="darkroom-toolbar">-->
+                <!--<ul class="darkroom-toolbar-actions">-->
+                    <!--<li class="darkroom-button-group">-->
+                        <!--&lt;!&ndash; http://stackoverflow.com/questions/19043219/undo-redo-feature-in-fabric-js &ndash;&gt;-->
+                        <!--<button class="darkroom-button">-->
+                            <!--<i class="darkroom-icon-back"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button">-->
+                            <!--<i class="darkroom-icon-forward"></i>-->
+                        <!--</button>-->
+                    <!--</li>-->
+                    <!--<li class="darkroom-button-group">-->
+                        <!--<button class="darkroom-button" ng-click="crop()">-->
+                            <!--<i class="darkroom-icon-crop"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="cropConfirmation" ng-click="confirmCrop()">-->
+                            <!--<i class="darkroom-icon-accept"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="cropConfirmation" ng-click="cancelCrop()">-->
+                            <!--<i class="darkroom-icon-cancel"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-click="zoom()" style="width:80px">-->
+                            <!--Zoom-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="zoomConfirmation" style="width:150px">-->
+                            <!--<input type="range" min="0" max="100" value="50" bind-value-to="zoom" />-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="zoomConfirmation" ng-click="zoomConfirmation=false">-->
+                            <!--<i class="darkroom-icon-accept"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="zoomConfirmation" ng-click="zoomConfirmation=false">-->
+                            <!--<i class="darkroom-icon-cancel"></i>-->
+                        <!--</button>-->
+                    <!--</li>-->
+                    <!--<li class="darkroom-button-group">-->
+                        <!--<button class="darkroom-button" ng-click="draw()" style="width:80px">-->
+                            <!--Draw-->
+                        <!--</button>-->
+                    <!--</li>-->
+                    <!--<li class="darkroom-button-group">-->
+                        <!--<button class="darkroom-button" ng-click="text()" style="width:70px">-->
+                            <!--Text-->
+                        <!--</button>-->
+                    <!--</li>-->
+                    <!--<li class="darkroom-button-group">-->
+                        <!--<button class="darkroom-button" ng-click="brightness()">-->
+                            <!--B-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="showBrightness" style="width:150px">-->
+                            <!--<input type="range" min="0" max="255" value="100" bind-value-to="brightness" />-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="showBrightness" ng-click="acceptBrightness()">-->
+                            <!--<i class="darkroom-icon-accept"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="showBrightness" ng-click="cancelBrightness()">-->
+                            <!--<i class="darkroom-icon-cancel"></i>-->
+                        <!--</button>-->
+                    <!--</li>-->
+                    <!--<li class="darkroom-button-group">-->
+                        <!--<button class="darkroom-button" ng-click="sharpen()">-->
+                            <!--S-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="showSharpen" ng-click="acceptSharpen()">-->
+                            <!--<i class="darkroom-icon-accept"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="showSharpen" ng-click="cancelSharpen()">-->
+                            <!--<i class="darkroom-icon-cancel"></i>-->
+                        <!--</button>-->
+                    <!--</li>-->
+                    <!--<li class="darkroom-button-group">-->
+                        <!--<button class="darkroom-button" ng-click="contrast()">-->
+                            <!--Contrast-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="showContrast" style="width:150px">-->
+                            <!--<input type="range" min="-10" max="20" bind-value-to="contrast" />-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="showContrast" ng-click="acceptContrast()">-->
+                            <!--<i class="darkroom-icon-accept"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-show="showContrast" ng-click="cancelContrast()">-->
+                            <!--<i class="darkroom-icon-cancel"></i>-->
+                        <!--</button>-->
+                    <!--</li>-->
+                    <!--<li class="darkroom-button-group">-->
+                        <!--<button class="darkroom-button" ng-click="rotate(-90)">-->
+                            <!--<i class="darkroom-icon-rotate-left"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" ng-click="rotate(90)">-->
+                            <!--<i class="darkroom-icon-rotate-right"></i>-->
+                        <!--</button>-->
+                    <!--</li>-->
+                    <!--<li class="darkroom-button-group" ng-show="isObjectSelected" >-->
+                        <!--<button class="darkroom-button" ng-click="removeSelected()">-->
+                            <!--<i class="darkroom-icon-cancel"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button" style="width:320px">-->
+                            <!--Opacity: <input type="range" min="0" max="100" style="width:60px" bind-value-to="opacity" />-->
+                        <!--</button>-->
+                    <!--</li>-->
+                    <!--<li class="darkroom-button-group">-->
+                        <!--<button class="darkroom-button">-->
+                            <!--<i class="darkroom-icon-save"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button">-->
+                            <!--<i class="darkroom-icon-save"></i>-->
+                        <!--</button>-->
+                        <!--<button class="darkroom-button">-->
+                            <!--<i class="darkroom-icon-save"></i>-->
+                        <!--</button>-->
+                    <!--</li>-->
+                <!--</ul>-->
+                <!--<div ng-model="showDraw" ng-show="showDraw" class="darkroom-toolbar-submenu_2line" style="height: 80px; width:500px; font-size: 20px">-->
+                        <!--Line <input type="color" value="#005E7A" bind-value-to="drawingLineColor"> Width dfsaf   {{ getDrawingLineWidth() }} <input type="range" value="30" min="0" max="150" bind-value-to="drawingLineWidth"><br/>-->
+                        <!--<button ng-click="drawRect()">Square</button>-->
+                        <!--<button ng-click="drawCircle()">Circle</button>-->
+                        <!--<button ng-click="drawTriangle()">Triangle</button>-->
+                        <!--<button ng-click="drawLine()">Line</button>-->
+                <!--</div>-->
+                <!--<div ng-model="showText" ng-show="showText" class="darkroom-toolbar-submenu_2line" style="height: 80px; width:650px; font-size: 20px">-->
+                    <!--<div>-->
+                        <!--<textarea rows="2" ng-model="textValue"></textarea><button ng-click="addText(textValue)">Add Text</button>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                        <!--<label for="font-family" style="display:inline-block">Color:</label><input type="color" style="width:40px" bind-value-to="fill" />-->
+                        <!--<label for="font-family" style="display:inline-block">Font:</label>-->
+                        <!--<select id="font-family">-->
+                            <!--<option value="arial">Arial</option>-->
+                            <!--<option value="helvetica" selected="">Helvetica</option>-->
+                            <!--<option value="myriad pro">Myriad Pro</option>-->
+                            <!--<option value="delicious">Delicious</option>-->
+                            <!--<option value="verdana">Verdana</option>-->
+                            <!--<option value="georgia">Georgia</option>-->
+                            <!--<option value="courier">Courier</option>-->
+                            <!--<option value="comic sans ms">Comic Sans MS</option>-->
+                            <!--<option value="impact">Impact</option>-->
+                            <!--<option value="monaco">Monaco</option>-->
+                            <!--<option value="optima">Optima</option>-->
+                            <!--<option value="hoefler text">Hoefler Text</option>-->
+                            <!--<option value="plaster">Plaster</option>-->
+                            <!--<option value="engagement">Engagement</option>-->
+                        <!--</select>-->
+                        <!--<label>Size:</label>-->
+                        <!--<input type="range" value="12" min="1" max="120" step="1">-->
+                        <!--<br />-->
+                        <!--<button>L</button>-->
+                        <!--<button>C</button>-->
+                        <!--<button>R</button>-->
+                        <!--<label>Background:</label><input type="color" value="" size="10">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 
-        </div>
+        <!--</div>-->
 
-        <br/>
-        <br/>
-        <br/>
+        <!--<canvas id="canvas" width="633px" height="575px"></canvas>-->
 
-        <canvas id="canvas" width="633px" height="575px"></canvas>
-
+        <img src="img/koala.jpg" id="target"/>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script src="js/darkroom.js"></script>
+        <script src="js/plugins/darkroom.crop.js"></script>
+        <script src="js/plugins/darkroom.history.js"></script>
+        <script src="js/plugins/darkroom.rotate.js"></script>
+        <script src="js/plugins/darkroom.save.js"></script>
+        <script src="js/plugins/darkroom.sharpen.js"></script>
+        <script src="js/plugins/darkroom.brightness.js"></script>
+        <script src="js/plugins/darkroom.contrast.js"></script>
+        <script src="js/plugins/darkroom.zoom.js"></script>
+        <script src="js/plugins/darkroom.zindex.js"></script>
+        <script src="js/plugins/darkroom.opacity.js"></script>
+        <script src="js/plugins/darkroom.remove.js"></script>
+        <script src="js/plugins/darkroom.draw.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
 
         <script>
-            var canvas = new fabric.Canvas('canvas');
+//            var canvas = new fabric.Canvas('canvas');
+
+            new Darkroom('#target', {
+                minWidth: 100,
+                minHeight: 100,
+                maxWidth: 500,
+                maxHeight: 500,
+});
+
         </script>
     </body>
 </html>

@@ -1,15 +1,14 @@
 ;(function(window, document, Darkroom) {
   'use strict';
-
-  ImageEditor.plugins['save'] = ImageEditor.Plugin.extend({
+  Darkroom.plugins['save'] = Darkroom.Plugin.extend({
     initialize: function InitDarkroomSavePlugin() {
-      var buttonGroup = this.imageEditor.toolbar.createButtonGroup();
+      var buttonGroup = this.darkroom.toolbar.createButtonGroup();
 
       this.destroyButton = buttonGroup.createButton({
         image: 'save'
       });
 
-      this.destroyButton.addEventListener('click', this.imageEditor.selfDestroy.bind(this.imageEditor));
-    },
+      this.destroyButton.addEventListener('click', this.darkroom.selfDestroy.bind(this.darkroom));
+    }
   });
-})(window, document, ImageEditor);
+})(window, document, Darkroom);

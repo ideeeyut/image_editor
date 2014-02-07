@@ -32,22 +32,22 @@
   // Basically it's a single object, instanciable via an element
   // (it could be a CSS selector or a DOM element), some custom options,
   // and a list of plugin objects (or none to use default ones).
-  function ImageEditor(element, options, plugins) {
+  function Darkroom(element, options, plugins) {
     return this.init(element, options, plugins);
   }
 
-  // ImageEditor namespace is the only one available outside of this context.
-  window.ImageEditor = ImageEditor;
+  // Darkroom namespace is the only one available outside of this context.
+  window.Darkroom = Darkroom;
 
   // Create an empty list of plugin objects, which will be filled by
   // other plugin scripts. This is the default plugin list if none is
-  // specified in ImageEditor'ss constructor.
-  ImageEditor.plugins = [];
+  // specified in Darkroom'ss constructor.
+  Darkroom.plugins = [];
 
   // Define a plugin object. This is the (abstract) parent class which
   // has to be extended for each plugin.
   function Plugin(darkroom, options) {
-    this.imageEditor = darkroom;
+    this.darkroom = darkroom;
     this.options = extend(options, this.defaults);
     this.initialize();
   }
@@ -82,7 +82,7 @@
   }
 
   // Attach the plugin class into the main namespace.
-  ImageEditor.Plugin = Plugin;
+  Darkroom.Plugin = Plugin;
 
   // UI elements
   // -----------
@@ -94,15 +94,30 @@
   }
 
   Toolbar.prototype.createButtonGroup = function(options) {
-    var buttonGroup = document.createElement('li');
-    buttonGroup.className = 'darkroom-button-group';
-    /*buttonGroup.innerHTML = '<ul></ul>';*/
-    this.actionsElement.appendChild(buttonGroup);
+      console.log('createButtonGroup');
 
-    return new ButtonGroup(buttonGroup);
+      var buttonGroup = document.createElement('li');
+      buttonGroup.className = 'darkroom-button-group';
+      this.actionsElement.appendChild(buttonGroup);
+
+      return new ButtonGroup(buttonGroup);
   };
 
-  // ButtonGroup object.
+  Toolbar.prototype.createPanel = function(innerHtml) {
+      var div = document.createElement('div');
+      div.style = "width:200px; height:80px; top:40px";
+      div.className = 'darkroom-menu';
+      div.innerHTML = innerHtml;
+      this.element.appendChild(div);
+
+      return new Panel(div);
+  };
+
+  function Panel(element) {
+      this.element = element;
+  }
+
+    // ButtonGroup object.
   function ButtonGroup(element) {
     this.element = element;
   }
@@ -124,6 +139,38 @@
     this.element.appendChild(button);
 
     var button = new Button(button);
+    button.hide(options.hide);
+    button.disable(options.disabled);
+
+    return button;
+  }
+
+  ButtonGroup.prototype.createSlider = function(options) {
+    var defaults = {
+//      image: 'help',
+      type: 'default',
+      group: 'default',
+      width: '200px',
+      max: 100,
+      min: 0,
+      value: 50,
+      hide: false,
+      disabled: false
+    };
+
+    options = extend(options, defaults);
+
+    var slider = document.createElement('input');
+    slider.type = 'range';
+    slider.className = 'darkroom-button darkroom-button-' + options.type;
+      slider.max = options.max;
+      slider.min = options.min;
+      slider.value = options.value;
+      slider.width = options.width;
+    //slider.style = 'width:' + options.width;
+    this.element.appendChild(slider);
+
+    var button = new Button(slider);
     button.hide(options.hide);
     button.disable(options.disabled);
 
@@ -162,7 +209,7 @@
   // Core object prototype
   // ---------------------
 
-  ImageEditor.prototype = {
+  Darkroom.prototype = {
     // This is the default options.
     // It has it's own options, such as dimension specification (min/max
     // width and height), plus options for each plugins.
@@ -206,7 +253,7 @@
       if (null === element)
         return;
 
-      var plugins = plugins || ImageEditor.plugins;
+      var plugins = plugins || Darkroom.plugins;
 
       var image = new Image();
 
@@ -217,6 +264,7 @@
           .initPlugins(plugins)
         ;
 
+          console.log('init');
         // Execute a custom callback after initialization
         _this.options.init.bind(_this).call();
       }
@@ -226,6 +274,7 @@
     },
 
     initDOM: function(element) {
+        console.log('initDom');
       // Create toolbar element
       var toolbar = document.createElement('div');
       toolbar.className = 'darkroom-toolbar';
@@ -252,7 +301,7 @@
       this.toolbar = new Toolbar(toolbar);
       this.canvas = new Canvas(canvas, {
         selection: false,
-        backgroundColor: '#ccc',
+        backgroundColor: '#ccc'
       });
 
       return this;
@@ -265,7 +314,9 @@
       var scaleX = 1;
       var scaleY = 1;
 
-      if (null !== this.options.maxWidth && this.options.maxWidth < width) {
+        console.log('initImage');
+
+        if (null !== this.options.maxWidth && this.options.maxWidth < width) {
         scaleX =  this.options.maxWidth / width;
       }
       if (null !== this.options.maxHeight && this.options.maxHeight < height) {
@@ -311,6 +362,7 @@
 
     initPlugins: function(plugins) {
       this.plugins = {};
+        console.log('initPlugins');
 
       for (var name in plugins) {
         var plugin = plugins[name];
@@ -321,7 +373,7 @@
           continue;
         }
 
-        this.plugins[name] = new plugin(this, options);
+          this.plugins[name] = new plugin(this, options);
       }
     },
 
@@ -347,8 +399,71 @@
 
     snapshotImage: function() {
       return this.image.toDataURL();
+    },
+
+    setActiveStyle: function(styleName, value, object) {
+        var canvas = this.canvas;
+
+        var activeObject = object || canvas.getActiveObject(),
+            activeGroup = canvas.getActiveGroup();
+
+        if (!activeObject && !activeGroup)
+        {
+            activeObject = canvas.item(0);
+        }
+
+        if(activeGroup) {
+            activeGroup.forEachObject(function(obj) {
+                if (obj.setSelectionStyles && obj.isEditing) {
+                    var style = { };
+                    style[styleName] = value;
+                    obj.setSelectionStyles(style);
+                    obj.setCoords();
+                }
+                else {
+                    obj[styleName] = value;
+                }
+            })
+        }
+        else {
+            if (activeObject.setSelectionStyles && activeObject.isEditing) {
+                var style = { };
+                style[styleName] = value;
+                activeObject.setSelectionStyles(style);
+                activeObject.setCoords();
+            }
+            else {
+                activeObject[styleName] = value;
+            }
+
+            activeObject.setCoords();
+        }
+
+        canvas.renderAll();
+    },
+
+    getActiveStyle: function(styleName, object) {
+        var canvas = this.canvas;
+
+        object = object || canvas.getActiveObject();
+        if (!object) {
+            object = canvas.item(0);
+        }
+
+        return (object.getSelectionStyles && object.isEditing)
+            ? (object.getSelectionStyles()[styleName] || '')
+            : (object[styleName] || '');
+    },
+    drawCircle: function(left, top, color) {
+        this.canvas.add(new fabric.Circle({
+            left: left,
+            top: top,
+            fill: color,
+            radius: 50,
+            opacity: 0.5
+        }));
     }
 
-  };
+};
 
 })(window, window.document, fabric);
