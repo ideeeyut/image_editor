@@ -103,20 +103,6 @@
       return new ButtonGroup(buttonGroup);
   };
 
-  Toolbar.prototype.createPanel = function(innerHtml) {
-      var div = document.createElement('div');
-      div.style = "width:200px; height:80px; top:40px";
-      div.className = 'darkroom-menu';
-      div.innerHTML = innerHtml;
-      this.element.appendChild(div);
-
-      return new Panel(div);
-  };
-
-  function Panel(element) {
-      this.element = element;
-  }
-
     // ButtonGroup object.
   function ButtonGroup(element) {
     this.element = element;
@@ -127,6 +113,7 @@
       image: 'help',
       type: 'default',
       group: 'default',
+      title: '',
       hide: false,
       disabled: false
     };
@@ -134,9 +121,12 @@
     options = extend(options, defaults);
 
     var button = document.createElement('button');
+    button.title = options.title;
     button.className = 'darkroom-button darkroom-button-' + options.type;
     button.innerHTML = '<i class="darkroom-icon-' + options.image + '"></i>';
+
     this.element.appendChild(button);
+
 
     var button = new Button(button);
     button.hide(options.hide);
@@ -145,36 +135,76 @@
     return button;
   }
 
-  ButtonGroup.prototype.createSlider = function(options) {
+  ButtonGroup.prototype.createInput = function(options) {
     var defaults = {
-//      image: 'help',
-      type: 'default',
-      group: 'default',
-      width: '200px',
-      max: 100,
-      min: 0,
-      value: 50,
+      type: 'color',
+      title: '',
       hide: false,
       disabled: false
     };
 
     options = extend(options, defaults);
 
-    var slider = document.createElement('input');
-    slider.type = 'range';
-    slider.className = 'darkroom-button darkroom-button-' + options.type;
-      slider.max = options.max;
-      slider.min = options.min;
-      slider.value = options.value;
-      slider.width = options.width;
-    //slider.style = 'width:' + options.width;
-    this.element.appendChild(slider);
+    var input = document.createElement('input');
+      input.type = options.type;
+    input.className = 'darkroom-button';
+//    button.innerHTML = '<i class="darkroom-icon-' + options.image + '"></i>';
 
-    var button = new Button(slider);
-    button.hide(options.hide);
-    button.disable(options.disabled);
+    this.element.appendChild(input);
 
-    return button;
+    var input = new Input(input);
+    input.hide(options.hide);
+    input.disable(options.disabled);
+
+    return input;
+  }
+
+  ButtonGroup.prototype.createSelect = function(options) {
+    var defaults = {
+      options: [],
+      hide: false,
+      disabled: false
+    };
+
+    options = extend(options, defaults);
+
+    var selectList = document.createElement('select');
+//    selectList.className = 'darkroom-button';
+//    button.innerHTML = '<i class="darkroom-icon-' + options.image + '"></i>';
+
+    for (var i = 0; i < options.options.length; i++) {
+      var option = document.createElement("option");
+      option.setAttribute("value", options.options[i]);
+      option.text = options.options[i];
+      selectList.appendChild(option);
+    }
+
+    this.element.appendChild(selectList);
+
+    var input = new Input(selectList);
+    input.hide(options.hide);
+    input.disable(options.disabled);
+
+    return input;
+  }
+
+  ButtonGroup.prototype.createTextArea = function(options) {
+    var defaults = {
+      hide: false,
+      disabled: false
+    };
+
+    options = extend(options, defaults);
+
+    var textArea = document.createElement('textarea');
+
+    this.element.appendChild(textArea);
+
+    var input = new Input(textArea);
+    input.hide(options.hide);
+    input.disable(options.disabled);
+
+    return input;
   }
 
   // Button object.
@@ -182,6 +212,31 @@
     this.element = element;
   }
   Button.prototype = {
+    addEventListener: function(eventName, callback) {
+      this.element.addEventListener(eventName, callback);
+    },
+    active: function(value) {
+      if (value)
+        this.element.classList.add('darkroom-button-active');
+      else
+        this.element.classList.remove('darkroom-button-active');
+    },
+    hide: function(value) {
+      if (value)
+        this.element.classList.add('darkroom-button-hidden');
+      else
+        this.element.classList.remove('darkroom-button-hidden');
+    },
+    disable: function(value) {
+      this.element.disabled = (value) ? true : false;
+    }
+  };
+
+  // Button object.
+  function Input(element) {
+    this.element = element;
+  }
+  Input.prototype = {
     addEventListener: function(eventName, callback) {
       this.element.addEventListener(eventName, callback);
     },
@@ -384,6 +439,8 @@
     selfDestroy: function() {
       var container = this.container;
 
+        this.canvas.renderAll();
+
       var image = new Image();
       image.onload = function() {
         container.parentNode.replaceChild(image, container);
@@ -398,7 +455,7 @@
     },
 
     snapshotImage: function() {
-      return this.image.toDataURL();
+      return this.canvas.toDataURL();
     },
 
     setActiveStyle: function(styleName, value, object) {
@@ -454,16 +511,6 @@
             ? (object.getSelectionStyles()[styleName] || '')
             : (object[styleName] || '');
     },
-    drawCircle: function(left, top, color) {
-        this.canvas.add(new fabric.Circle({
-            left: left,
-            top: top,
-            fill: color,
-            radius: 50,
-            opacity: 0.5
-        }));
-    }
-
 };
 
 })(window, window.document, fabric);

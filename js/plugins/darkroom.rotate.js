@@ -6,11 +6,13 @@
       var buttonGroup = this.darkroom.toolbar.createButtonGroup();
 
       this.leftButton = buttonGroup.createButton({
-        image: 'rotate-left'
+        image: 'rotate-left',
+        title: 'Rotate Left'
       });
 
       this.rightButton = buttonGroup.createButton({
-        image: 'rotate-right'
+        image: 'rotate-right',
+        title: 'Rotate Right'
       });
 
       this.leftButton.addEventListener('click', this.rotateLeft.bind(this));

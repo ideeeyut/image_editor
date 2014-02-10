@@ -4,15 +4,14 @@
         initialize: function InitDarkroomOpacityPlugin() {
             var buttonGroup = this.darkroom.toolbar.createButtonGroup();
 
-            this.hasFocus = false;
-
-            this.slider = buttonGroup.createSlider({
-                width: '150px',
-                max: 100,
-                min: 0,
-                value: 50,
+            this.slider = buttonGroup.createInput({
+                type: 'range',
                 hide: true
             });
+            this.slider.element.width = '150px';
+            this.slider.element.value = 50;
+            this.slider.element.max = 100;
+            this.slider.element.min = 0;
 
             this.slider.addEventListener('change', this.changeValue.bind(this));
             this.slider.addEventListener('mouseup', this.mouseUp.bind(this));
@@ -28,12 +27,10 @@
             this.slider.hide(true);
         },
         mouseUp: function() {
-          console.log('mouse up');
+          this.darkroom.dispatchEvent(new Event('image:change'));
         },
         changeValue: function() {
-            console.log(this.slider.element.value);
-
             this.darkroom.setActiveStyle('opacity', parseInt(this.slider.element.value, 10) / 100);
-        }
+        },
     });
 })(window, document, Darkroom);

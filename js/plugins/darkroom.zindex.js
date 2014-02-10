@@ -9,11 +9,13 @@
 
             this.bringForwardButton = buttonGroup.createButton({
                 image: 'cancel',
-                disabled: true
+                disabled: true,
+                title: 'Bring Forward'
             });
             this.sendBackwardButton = buttonGroup.createButton({
                 image: 'cancel',
-                disabled: true
+                disabled: true,
+                title: 'Send Backward'
             });
 
             this.bringForwardButton.addEventListener('click', this.bringForward.bind(this));
@@ -24,20 +26,22 @@
 
         },
         objectSelected: function() {
-            this.bringForwardButton.disable(false);
-            this.sendBackwardButton.disable(false);
+            this.bringForwardButton.disable(this.darkroom.canvas.items.length > 1);
+            this.sendBackwardButton.disable(this.darkroom.canvas.items.length > 1);
         },
         selectionCleared: function() {
             this.bringForwardButton.disable(true);
             this.sendBackwardButton.disable(true);
         },
         bringForward: function() {
+            //TODO don't allow send behind background image
             var activeObject = this.darkroom.canvas.getActiveObject();
             if (activeObject) {
                 this.darkroom.canvas.bringForward(activeObject);
             }
         },
         sendBackward: function() {
+            //TODO don't allow send behind background image
             var activeObject = this.darkroom.canvas.getActiveObject();
             if (activeObject) {
                 this.darkroom.canvas.sendBackwards(activeObject);

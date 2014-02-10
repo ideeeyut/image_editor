@@ -5,7 +5,8 @@
       var buttonGroup = this.darkroom.toolbar.createButtonGroup();
 
       this.destroyButton = buttonGroup.createButton({
-        image: 'save'
+        image: 'save',
+        title: 'Save'
       });
 
       this.destroyButton.addEventListener('click', this.darkroom.selfDestroy.bind(this.darkroom));

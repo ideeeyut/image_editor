@@ -40,12 +40,14 @@
 
       this.backButton = buttonGroup.createButton({
         image: 'back',
-        disabled: true
+        disabled: true,
+        title: 'Undo'
       });
 
       this.forwardButton = buttonGroup.createButton({
         image: 'forward',
-        disabled: true
+        disabled: true,
+        title: 'Redo'
       });
 
       this.backButton.addEventListener('click', this.goBack.bind(this));
@@ -68,6 +70,7 @@
     },
 
     _onImageChange: function() {
+        console.log('image changed');
       this.backHistoryStack.push(this.currentImage);
       this._snapshotImage();
       this.forwardHistoryStack.length = 0;

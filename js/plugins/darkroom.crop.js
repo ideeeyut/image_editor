@@ -131,7 +131,8 @@
       var buttonGroup = this.darkroom.toolbar.createButtonGroup();
 
       this.cropButton = buttonGroup.createButton({
-        image: 'crop'
+        image: 'crop',
+        title: 'Crop'
       });
       this.okButton = buttonGroup.createButton({
         image: 'accept',

@@ -12,7 +12,7 @@ angular.module('esm')
     };
   }]);
 
-esm.directive('bindValueTo', function () {
+angular.module('esm').directive('bindValueTo', function () {
     return {
         restrict: 'A',
 
@@ -41,7 +41,7 @@ esm.directive('bindValueTo', function () {
     };
 });
 
-esm.directive('objectButtonsEnabled', function () {
+angular.module('esm').directive('objectButtonsEnabled', function () {
     return {
         restrict: 'A',
 

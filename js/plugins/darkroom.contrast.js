@@ -9,16 +9,18 @@
             this.hasFocus = false;
 
             this.button = buttonGroup.createButton({
-                image: 'save'
+                image: 'save',
+                title: 'Contrast'
             });
 
-            this.slider = buttonGroup.createSlider({
-                width: '150px',
-                max: 255,
-                min: 0,
-                value: 100,
+            this.slider = buttonGroup.createInput({
+                type: 'range',
                 hide: true
             });
+            this.slider.element.width = '150px';
+            this.slider.element.value = 100;
+            this.slider.element.max = 255;
+            this.slider.element.min = 0;
 
             this.okButton = buttonGroup.createButton({
                 image: 'accept',
@@ -34,7 +36,7 @@
             // Buttons click
             this.button.addEventListener('click', this.toggleButton.bind(this));
             this.slider.addEventListener('change', this.changeValue.bind(this));
-            this.okButton.addEventListener('click', this.brightenImage.bind(this));
+            this.okButton.addEventListener('click', this.contrastImage.bind(this));
             this.cancelButton.addEventListener('click', this.releaseFocus.bind(this));
         },
         toggleButton: function() {
@@ -54,7 +56,7 @@
                 obj.applyFilters(canvas.renderAll.bind(canvas));
             }
         },
-        brightenImage: function() {
+        contrastImage: function() {
             this.hasFocus = false;
             this.button.active(false);
             this.slider.hide(true);
@@ -67,6 +69,7 @@
         // brighten the image
         requireFocus: function() {
             this.hasFocus = true;
+            this.button.active(true);
             this.slider.hide(false);
             this.okButton.hide(false);
             this.cancelButton.hide(false);

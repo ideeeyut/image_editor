@@ -2,30 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f946524-6ea0-4ef4-82ad-8eeb51400797" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.brightness.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.contrast.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.draw.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.email.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.opacity.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.remove.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.savetolibrary.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.sharpen.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.text.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.zindex.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.zoom.js" />
-      <change type="DELETED" beforePath="C:\source\image_editor\js\ImageEditor.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/app.js" afterPath="$PROJECT_DIR$/js/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers.js" afterPath="$PROJECT_DIR$/js/controllers.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.colorpicker.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.shapes.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/plugins/darkroom.test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.brightness.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.brightness.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.contrast.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.contrast.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.crop.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.crop.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.draw.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.draw.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.history.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.history.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/darkroom.js" afterPath="$PROJECT_DIR$/js/darkroom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.opacity.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.opacity.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.remove.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.remove.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.rotate.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.rotate.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.save.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.save.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.sharpen.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.sharpen.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.text.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.text.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.zindex.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.zindex.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/plugins/darkroom.zoom.js" afterPath="$PROJECT_DIR$/js/plugins/darkroom.zoom.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/directives.js" afterPath="$PROJECT_DIR$/js/directives.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/filters.js" afterPath="$PROJECT_DIR$/js/filters.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/imageeditor.css" afterPath="$PROJECT_DIR$/css/imageeditor.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/services.js" afterPath="$PROJECT_DIR$/js/services.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ImageEditor.iws" />
@@ -52,16 +47,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="150" column="0" selection-start="9203" selection-end="9517" vertical-scroll-proportion="-10.115385" vertical-offset="2287" max-vertical-offset="3859">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controllers.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/controllers.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="232" column="0" selection-start="5865" selection-end="5865" vertical-scroll-proportion="-0.68" vertical-offset="3927" max-vertical-offset="8432">
+            <state line="207" column="44" selection-start="13251" selection-end="13251" vertical-scroll-proportion="-19.26923" vertical-offset="3018" max-vertical-offset="3927">
               <folding />
             </state>
           </provider>
@@ -70,34 +56,52 @@
       <file leaf-file-name="darkroom.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/darkroom.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="0" selection-start="3187" selection-end="3187" vertical-scroll-proportion="0.0" vertical-offset="1602" max-vertical-offset="8075">
+            <state line="244" column="57" selection-start="6376" selection-end="6376" vertical-scroll-proportion="0.0" vertical-offset="3927" max-vertical-offset="8874">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="darkroom.draw.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="darkroom.text.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.text.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="46" selection-start="1276" selection-end="1276" vertical-scroll-proportion="-14.28" vertical-offset="306" max-vertical-offset="1190">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="darkroom.zindex.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.zindex.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="29" column="78" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.36472347" vertical-offset="215" max-vertical-offset="918">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="darkroom.history.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.history.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="98" column="35" selection-start="2683" selection-end="2683" vertical-scroll-proportion="0.0" vertical-offset="606" max-vertical-offset="1938">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="darkroom.draw.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.draw.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="21" selection-start="693" selection-end="693" vertical-scroll-proportion="0.27083334" vertical-offset="0" max-vertical-offset="1122">
+            <state line="45" column="0" selection-start="1760" selection-end="1828" vertical-scroll-proportion="-20.8" vertical-offset="211" max-vertical-offset="884">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="darkroom.opacity.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.opacity.js">
+      <file leaf-file-name="darkroom.shapes.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.shapes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="29" selection-start="0" selection-end="1415" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imageeditor.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/imageeditor.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="55" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+            <state line="125" column="9" selection-start="4289" selection-end="4289" vertical-scroll-proportion="0.0" vertical-offset="338" max-vertical-offset="2686">
               <folding />
             </state>
           </provider>
@@ -123,25 +127,32 @@
       <list>
         <option value="$PROJECT_DIR$/js/fabric.ext.js" />
         <option value="$PROJECT_DIR$/js/ImageEditor.js" />
-        <option value="$PROJECT_DIR$/js/plugins/darkroom.crop.js" />
         <option value="$PROJECT_DIR$/js/app.js" />
-        <option value="$PROJECT_DIR$/js/directives.js" />
         <option value="$PROJECT_DIR$/js/filters.js" />
         <option value="$PROJECT_DIR$/js/services.js" />
-        <option value="$PROJECT_DIR$/js/plugins/darkroom.sharpen.js" />
-        <option value="$PROJECT_DIR$/js/plugins/darkroom.brightness.js" />
-        <option value="$PROJECT_DIR$/js/plugins/darkroom.contrast.js" />
         <option value="$PROJECT_DIR$/js/controllers.js" />
-        <option value="$PROJECT_DIR$/js/plugins/darkroom.zoom.js" />
-        <option value="$PROJECT_DIR$/js/plugins/darkroom.zindex.js" />
-        <option value="$PROJECT_DIR$/js/plugins/darkroom.save.js" />
         <option value="$PROJECT_DIR$/js/plugins/darkroom.delete.js" />
-        <option value="$PROJECT_DIR$/js/plugins/darkroom.opacity.js" />
-        <option value="$PROJECT_DIR$/js/plugins/darkroom.remove.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/imageeditor.css" />
-        <option value="$PROJECT_DIR$/js/darkroom.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.testobjects.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.remove.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.rotate.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.save.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.crop.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.colorpicker.js" />
+        <option value="$PROJECT_DIR$/js/directives.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.zoom.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.contrast.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.brightness.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.sharpen.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.test.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.opacity.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.history.js" />
         <option value="$PROJECT_DIR$/js/plugins/darkroom.draw.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.shapes.js" />
+        <option value="$PROJECT_DIR$/js/darkroom.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.text.js" />
+        <option value="$PROJECT_DIR$/js/plugins/darkroom.zindex.js" />
       </list>
     </option>
   </component>
@@ -225,34 +236,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="plugins" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="image_editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="icons" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageEditor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="image_editor" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -358,7 +341,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1871345" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1871345" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15567766" sideWeight="0.6707819" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2128655" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -391,41 +374,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="76" selection-start="5001" selection-end="5001" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2397">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="19" selection-start="172" selection-end="172" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="510">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="0" selection-start="1134" selection-end="1134" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="2601">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.history.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="41" selection-start="1799" selection-end="1799" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="1887">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="3" selection-start="37" selection-end="37" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="289">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="4" selection-start="122" selection-end="122" vertical-scroll-proportion="0.0" vertical-offset="119" max-vertical-offset="255">
@@ -565,13 +513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/directives.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="4" selection-start="152" selection-end="152" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1054">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/filters.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="4" selection-start="56" selection-end="56" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="272">
@@ -593,37 +534,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.brightness.js">
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.savetolibrary.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="3475" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1904">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.zoom.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="77" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.0" vertical-offset="718" max-vertical-offset="1564">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.text.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="829">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.history.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="0" selection-start="1273" selection-end="1273" vertical-scroll-proportion="0.6522277" vertical-offset="272" max-vertical-offset="1887">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.crop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="157" column="0" selection-start="5254" selection-end="5336" vertical-scroll-proportion="0.0" vertical-offset="2380" max-vertical-offset="9333">
+        <state line="3" column="0" selection-start="40" selection-end="40" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="119">
           <folding />
         </state>
       </provider>
@@ -635,96 +548,177 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.savetolibrary.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="829">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.contrast.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1853">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.rotate.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="22" selection-start="728" selection-end="728" vertical-scroll-proportion="0.49215922" vertical-offset="0" max-vertical-offset="1088">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.sharpen.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="1420" selection-end="1420" vertical-scroll-proportion="0.84077203" vertical-offset="0" max-vertical-offset="1496">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.save.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="5" selection-start="422" selection-end="422" vertical-scroll-proportion="0.22557297" vertical-offset="0" max-vertical-offset="829">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.zindex.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="0" selection-start="766" selection-end="766" vertical-scroll-proportion="0.36911944" vertical-offset="0" max-vertical-offset="850">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="232" column="0" selection-start="5865" selection-end="5865" vertical-scroll-proportion="-0.68" vertical-offset="3927" max-vertical-offset="8432">
+        <state line="28" column="0" selection-start="797" selection-end="797" vertical-scroll-proportion="0.0" vertical-offset="314" max-vertical-offset="1122">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.remove.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="547" selection-end="547" vertical-scroll-proportion="0.24607961" vertical-offset="68" max-vertical-offset="901">
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="e#1648#1687#0" expanded="false" />
-          </folding>
+        <state line="14" column="0" selection-start="602" selection-end="602" vertical-scroll-proportion="0.2870929" vertical-offset="0" max-vertical-offset="829">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.opacity.js">
+    <entry file="file://$PROJECT_DIR$/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="29" selection-start="0" selection-end="1415" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="765">
+        <state line="469" column="0" selection-start="12238" selection-end="12373" vertical-scroll-proportion="0.0" vertical-offset="7603" max-vertical-offset="8432">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.crop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="369" column="0" selection-start="11107" selection-end="11166" vertical-scroll-proportion="0.0" vertical-offset="6154" max-vertical-offset="9350">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.save.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="71" selection-start="412" selection-end="412" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.colorpicker.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="514" selection-end="602" vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="1071">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/directives.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="21" selection-start="1090" selection-end="1090" vertical-scroll-proportion="0.67671895" vertical-offset="0" max-vertical-offset="1054">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/imageeditor.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="55" selection-start="791" selection-end="791" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
+        <state line="32" column="8" selection-start="16062" selection-end="16062" vertical-scroll-proportion="0.7575277" vertical-offset="66" max-vertical-offset="697">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/_layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="669">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/_toolbar.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="782">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/darkroom.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/_buttons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="16" selection-start="351" selection-end="351" vertical-scroll-proportion="0.44945568" vertical-offset="0" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="27" selection-start="558" selection-end="558" vertical-scroll-proportion="0.38116592" vertical-offset="0" max-vertical-offset="669">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.opacity.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="555" selection-end="555" vertical-scroll-proportion="0.38116592" vertical-offset="0" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.sharpen.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="35" selection-start="1123" selection-end="1123" vertical-scroll-proportion="0.35575485" vertical-offset="340" max-vertical-offset="1632">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.brightness.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="29" selection-start="2342" selection-end="2342" vertical-scroll-proportion="0.28594506" vertical-offset="962" max-vertical-offset="1904">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.zoom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="37" selection-start="3122" selection-end="3122" vertical-scroll-proportion="0.64424515" vertical-offset="963" max-vertical-offset="1802">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.contrast.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="454" selection-end="758" vertical-scroll-proportion="0.5799677" vertical-offset="32" max-vertical-offset="1904">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="150" column="0" selection-start="9203" selection-end="9517" vertical-scroll-proportion="-10.115385" vertical-offset="2287" max-vertical-offset="3859">
+        <state line="207" column="44" selection-start="13251" selection-end="13251" vertical-scroll-proportion="-19.26923" vertical-offset="3018" max-vertical-offset="3927">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/darkroom.js">
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.history.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="0" selection-start="3187" selection-end="3187" vertical-scroll-proportion="0.0" vertical-offset="1602" max-vertical-offset="8075">
+        <state line="98" column="35" selection-start="2683" selection-end="2683" vertical-scroll-proportion="0.0" vertical-offset="606" max-vertical-offset="1938">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.shapes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="9" selection-start="4289" selection-end="4289" vertical-scroll-proportion="0.0" vertical-offset="1868" max-vertical-offset="2686">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.draw.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="21" selection-start="693" selection-end="693" vertical-scroll-proportion="0.27083334" vertical-offset="0" max-vertical-offset="1122">
+        <state line="45" column="0" selection-start="1760" selection-end="1828" vertical-scroll-proportion="-20.8" vertical-offset="211" max-vertical-offset="884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/darkroom.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="244" column="57" selection-start="6376" selection-end="6376" vertical-scroll-proportion="0.0" vertical-offset="3927" max-vertical-offset="8874">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.text.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="41" column="46" selection-start="1276" selection-end="1276" vertical-scroll-proportion="-14.28" vertical-offset="306" max-vertical-offset="1190">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/plugins/darkroom.zindex.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="78" selection-start="1238" selection-end="1238" vertical-scroll-proportion="0.36472347" vertical-offset="215" max-vertical-offset="918">
           <folding />
         </state>
       </provider>
