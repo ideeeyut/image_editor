@@ -15,24 +15,57 @@
 
     goBack: function() {
       if (this.backHistoryStack.length === 0) {
+        this._updateButtons();
         return;
       }
 
-      this.forwardHistoryStack.push(this.currentImage);
-      this.currentImage = this.backHistoryStack.pop();
-      this._applyImage(this.currentImage);
+      this._snapshotImage();
+      this.forwardHistoryStack.push({
+          json: this.currentJson,
+          image: this.currentImage
+      });
+
+      var back = this.backHistoryStack.pop();
+      this._applyImage(back);
       this._updateButtons();
+
+//      console.log('back');
+//        for(var i=0; i < this.backHistoryStack.length; i++)
+//        {
+//            console.log('back  ' + this.backHistoryStack[i].image.src);
+//        }
+//        for(var i=0; i < this.forwardHistoryStack.length; i++)
+//        {
+//            console.log('forw  ' + this.forwardHistoryStack[i].image.src);
+//        }
     },
 
     goForward: function() {
       if (this.forwardHistoryStack.length === 0) {
+        this._updateButtons();
         return;
       }
 
-      this.backHistoryStack.push(this.currentImage);
-      this.currentImage = this.forwardHistoryStack.pop();
-      this._applyImage(this.currentImage);
+      this._snapshotImage();
+      this.backHistoryStack.push({
+          json: this.currentJson,
+          image: this.currentImage
+      });
+
+      var forward = this.forwardHistoryStack.pop();
+      //this.currentImage = forward.image;
+      this._applyImage(forward);
       this._updateButtons();
+
+//      console.log('forward');
+//      for(var i=0; i < this.backHistoryStack.length; i++)
+//      {
+//        console.log('back  ' + this.backHistoryStack[i].image.src);
+//      }
+//      for(var i=0; i < this.forwardHistoryStack.length; i++)
+//      {
+//        console.log('forw  ' + this.forwardHistoryStack[i].image.src);
+//      }
     },
 
     _initButtons: function() {
@@ -62,26 +95,32 @@
     },
 
     _snapshotImage: function() {
-      var _this = this;
       var image = new Image();
       image.src = this.darkroom.snapshotImage();
 
+      this.currentJson = this.darkroom.snapShotJson();
       this.currentImage = image;
     },
 
     _onImageChange: function() {
-        console.log('image changed');
-      this.backHistoryStack.push(this.currentImage);
+      console.log('push back image change');
+      this.backHistoryStack.push({
+          json: this.currentJson,
+          image: this.currentImage
+      });
+
       this._snapshotImage();
+
       this.forwardHistoryStack.length = 0;
       this._updateButtons();
     },
 
     // Apply image to the canvas
-    _applyImage: function(image) {
+    _applyImage: function(snapshot) {
+      console.log('apply image');
       var canvas = this.darkroom.canvas;
 
-      var imgInstance = new fabric.Image(image, {
+      var imgInstance = new fabric.Image(snapshot.image, {
         // options to make the image static
         selectable: false,
         evented: false,
@@ -96,13 +135,15 @@
       });
 
       // Update canvas size
-      canvas.setWidth(image.width);
-      canvas.setHeight(image.height);
+      canvas.setWidth(snapshot.image.width);
+      canvas.setHeight(snapshot.image.height);
 
       // Add image
       this.darkroom.image.remove();
       this.darkroom.image = imgInstance;
       canvas.add(imgInstance);
+      canvas.loadFromJSON(snapshot.json);
+      console.log('appl ' + snapshot.image.src);
     }
   });
 })(window, document, Darkroom, fabric);

@@ -42,6 +42,8 @@
             this.triangleButton.addEventListener('click', this.drawTriangle.bind(this));
             this.circleButton.addEventListener('click', this.drawCircle.bind(this));
             this.lineButton.addEventListener('click', this.drawLine.bind(this));
+
+            this.darkroom.canvas.on('object:modified', this.objectModified.bind(this));
         },
 
         toggleShapes: function() {
@@ -105,24 +107,8 @@
 
             this.darkroom.dispatchEvent(new Event('image:change'));
         },
-        objectSelected: function() {
-            var activeObject = this.darkroom.canvas.getActiveObject();
-            if(!activeObject) return;
-
-            if(activeObject.stroke != null)
-            {
-                this.lineWidth.value = activeObject.lineWeight;
-                this.colorPicker.value = activeObject.stroke;
-            }
-            else if(activeObject.fill != null)
-            {
-                this.colorPicker.value = activeObject.fill;
-            }
-        },
-        selectionCleared: function() {
-        },
-        mouseUp: function() {
-            console.log('mouse up');
+        objectModified: function() {
+            this.darkroom.dispatchEvent(new Event('image:change'));
         },
     });
 

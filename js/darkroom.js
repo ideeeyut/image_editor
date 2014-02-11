@@ -454,8 +454,11 @@
       */
     },
 
+    snapShotJson: function() {
+      return this.canvas.toJSON();
+    },
     snapshotImage: function() {
-      return this.canvas.toDataURL();
+      return this.image.toDataURL();
     },
 
     setActiveStyle: function(styleName, value, object) {

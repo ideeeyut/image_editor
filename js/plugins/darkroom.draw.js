@@ -24,8 +24,7 @@
 
             this.drawButton.addEventListener('click', this.toggleDraw.bind(this));
             this.lineWidth.addEventListener('change', this.changeLineWidth.bind(this));
-            this.darkroom.canvas.on('object:added', function() { console.log('object:added'); });
-            this.darkroom.canvas.on('mouse:up', this.imageChanged.bind(this));
+            this.darkroom.canvas.on('mouse:up', this.mouseUp.bind(this));
 
         },
         toggleDraw: function() {
@@ -41,8 +40,10 @@
             var lineWidth = this.lineWidth.element.value;
             this.darkroom.canvas.freeDrawingBrush.width = parseInt(lineWidth, 10) || 1;
         },
-        imageChanged: function() {
-            this.darkroom.dispatchEvent(new Event('image:change'));
+        mouseUp: function() {
+            if(this.darkroom.canvas.isDrawingMode){
+                this.darkroom.dispatchEvent(new Event('image:change'));
+            }
         },
     });
 })(window, document, Darkroom);

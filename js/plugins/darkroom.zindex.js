@@ -26,8 +26,8 @@
 
         },
         objectSelected: function() {
-            this.bringForwardButton.disable(this.darkroom.canvas.items.length > 1);
-            this.sendBackwardButton.disable(this.darkroom.canvas.items.length > 1);
+            this.bringForwardButton.disable(false);
+            this.sendBackwardButton.disable(false);
         },
         selectionCleared: function() {
             this.bringForwardButton.disable(true);
